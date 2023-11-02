@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .header-main {
+    @apply flex justify-center w-[100%] rounded-b-lg p-[10px] shadow-lg shadow-current bg-slate-600 hover:bg-slate-500;
+  }
+  .main-app{
+    @apply flex gap-[20px] flex-col h-screen bg-slate-400;
+  }
+  .h1-header{
+    @apply flex flex-row text-[30px] content-center;
+  }
+  .article-main{
+    @apply flex flex-col w-full gap-[10px];
+  }
+  .section1-article{
+    @apply flex justify-center bg-slate-500 shadow shadow-current py-[10px] border-[1px] border-black rounded-[3px];
+  }
+  .section2-article{
+    @apply flex justify-center ;
+  }
+  /* .section3-article{
+    @apply flex justify-center bg-slate-500 shadow-sm shadow-current py-[10px];
+  } */
+  .h2-section1{
+    @apply w-[100%] mx-[8%];
+  }
+  .button-section2{
+    @apply flex justify-center cursor-pointer active:bg-slate-600 w-[60%] rounded-[5px] border-2 border-black	bg-slate-500;
+  }
+  .h2-section3{
+    @apply w-[100%] mx-[8%];
+  }
+
+}
