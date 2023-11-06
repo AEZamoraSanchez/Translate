@@ -1,13 +1,17 @@
 import { allLanguages } from '../constants'
 import { type FC } from 'react'
-import { type SelectProps } from '../types'
+import { type SelectProps, type selectLanguage } from '../types'
+import { useEffect } from 'react'
 
-const LanguageSelector: FC<SelectProps> = ({ onChange }) => {
+const LanguageSelector: FC<SelectProps> = ({ onChange, type, value }) => {
   const handleSelectLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    onChange(event?.target.value)
+    onChange(event?.target.value as selectLanguage)
   }
   return (
-        <select onChange={ handleSelectLanguage } className='bg-transparent cursor-pointer hover:bg-slate-600'>
+        <select onChange={ handleSelectLanguage } className='bg-transparent cursor-pointer hover:bg-slate-600' value={value}>
+          {
+            type === 'from' && <option className='bg-slate-400 cursor-pointer hover:bg-slate-600' value="auto">Detectar Idioma </option>
+          }
             {
                 Object.entries(allLanguages).map(([key, literal]) => (
                     <option className='bg-slate-400 cursor-pointer hover:bg-slate-600' key={key} value={key}>{literal}</option>

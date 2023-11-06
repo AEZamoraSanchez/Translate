@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { LanguagesStore } from '../../types'
+import { type LanguagesStore } from '../../types'
 
 export const useLanguagesStore = create <LanguagesStore>((set, get) => ({
   fromLanguage: 'auto',
@@ -10,7 +10,7 @@ export const useLanguagesStore = create <LanguagesStore>((set, get) => ({
   interchangeLanguages: () => {
     const fromLanguage = get().fromLanguage
     if (fromLanguage !== 'auto') {
-      set((state) => ({
+      set((state: LanguagesStore) => ({
         ...state,
         fromLanguage: state.toLanguage,
         toLanguage: state.fromLanguage
