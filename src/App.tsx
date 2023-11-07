@@ -22,7 +22,7 @@ function App () {
           <section className='section1-article grid gap-[5px] md:col-start-7 md:col-end-[-1] md:row-start-1'>
             <h2 className='h2-section3'>Language: <LanguageSelector onChange={setToLanguage} type='to' value={toLanguage}/></h2>
           </section>
-          <textarea name="" id="" cols={30} rows={10} placeholder='Traduccion' className=' bg-slate-200 p-[15px] md:col-start-6 md:col-end-[-1] rounded-md text-2xl'></textarea>
+          <textarea name="" id="" cols={30} rows={10} placeholder='Traduccion' className=' bg-slate-300 p-[15px] md:col-start-6 md:col-end-[-1] rounded-md text-2xl'></textarea>
       </article>
       <footer className=' bg-black inset-x-0 bottom-[-20px] m-0'>Nada</footer>
   </main>
