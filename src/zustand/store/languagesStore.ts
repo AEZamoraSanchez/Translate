@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { type LanguagesStore } from '../../types'
+import type { LanguagesStore } from '../../types'
 
 export const useLanguagesStore = create <LanguagesStore>((set, get) => ({
   fromLanguage: 'auto',
@@ -43,5 +43,27 @@ export const useLanguagesStore = create <LanguagesStore>((set, get) => ({
       result: resultValue,
       loading: false
     }))
+  },
+  useTranslateText: async (body) => {
+    try {
+      
+      const response = await fetch('http://localhost:3000', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      });
+  
+      const data = await response.json();
+      console.log(data);
+      set((state) => ({
+        ...state,
+        result: data.text
+      }));
+  
+    } catch (error) {
+      console.error(error);
+    }
   }
 }))

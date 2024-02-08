@@ -3,6 +3,11 @@ import { type allLanguages, type autoLanguage } from './constants'
 export type selectLanguage = keyof typeof allLanguages // el idioma elegido tendra que ser uno de estos idiomas idiomas
 
 type autoSelectLanguage = typeof autoLanguage
+export interface PropsToTranslate {
+  text: string
+  fromLanguage: allTypesLanguages
+  toLanguage: selectLanguage
+}
 
 type allTypesLanguages = autoSelectLanguage | selectLanguage
 
@@ -17,6 +22,7 @@ export interface LanguagesStore {
   setToLanguage: (newToLanguage: selectLanguage) => avoid // funcion para elegir el lenguaje de salida
   setFromText: (textFrom: string) => avoid // funcion para establecer el textp a traducir
   setResult: (resultValue: string) => avoid // funcion que establece la traduccionf
+  useTranslateText: (body: PropsToTranslate) => Promise<void> // funcion para traducir
 }
 
 export type SelectProps = { type: 'from', value: allTypesLanguages, onChange: (language: allTypesLanguages) => void } | { type: 'to', value: selectLanguage, onChange: (language: selectLanguage) => void }

@@ -1,7 +1,6 @@
 import { allLanguages } from '../constants'
 import { type FC } from 'react'
 import { type SelectProps, type selectLanguage } from '../types'
-import { useEffect } from 'react'
 
 const LanguageSelector: FC<SelectProps> = ({ onChange, type, value }) => {
   const handleSelectLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
