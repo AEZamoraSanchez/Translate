@@ -7,23 +7,23 @@ type allTypesLanguages = autoSelectLanguage | selectLanguage
 export interface PropsToTranslate {
   text: string
   fromLanguage: allTypesLanguages | null
-  toLanguage: selectLanguage
+  toLanguage: selectLanguage | "auto"
 }
 
 
 export interface LanguagesStore {
   fromLanguage: allTypesLanguages // idioma que queremos traducir
-  toLanguage: selectLanguage // idioma al que queremos traducir
+  toLanguage: selectLanguage | "auto" // idioma al que queremos traducir
   fromText: string // texto que recibe
   result: string // texto de salida
   loading: boolean // pantalla de carga mientras se traduce
   interchangeLanguages: () => avoid // funcion para invertir los idiomas
   languageIsTheSame: () => avoid // funcion para no gastar peticiones
   setFromLanguage: (newFromLanguage: allTypesLanguages) => avoid // funcion para elegir el lenguaje de entrada
-  setToLanguage: (newToLanguage: selectLanguage) => avoid // funcion para elegir el lenguaje de salida
+  setToLanguage: (newToLanguage: selectLanguage | "auto") => avoid // funcion para elegir el lenguaje de salida
   setFromText: (textFrom: string) => avoid // funcion para establecer el textp a traducir
   setResult: (resultValue: string) => avoid // funcion que establece la traduccionf
   useTranslateText: (body: PropsToTranslate) => Promise<void> // funcion para traducir
 }
 
-export type SelectProps = { type: 'from', value: allTypesLanguages, onChange: (language: allTypesLanguages) => void } | { type: 'to', value: selectLanguage, onChange: (language: selectLanguage) => void }
+export type SelectProps = { type: 'from', value: allTypesLanguages, onChange: (language: allTypesLanguages) => void } | { type: 'to', value: selectLanguage | "auto", onChange: (language: selectLanguage) => void }

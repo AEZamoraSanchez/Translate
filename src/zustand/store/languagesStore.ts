@@ -13,7 +13,7 @@ export const useLanguagesStore = create <LanguagesStore>((set, get) => ({
   interchangeLanguages: () => {
     const fromLanguage = get().fromLanguage
     if (fromLanguage !== "auto") {
-      set((state: LanguagesStore) => ({
+      set((state) => ({
         ...state,
         fromLanguage: state.toLanguage,
         toLanguage: state.fromLanguage
