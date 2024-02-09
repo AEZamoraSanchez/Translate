@@ -1,15 +1,15 @@
-import { type allLanguages, type autoLanguage } from './constants'
+import { type autoLanguage } from './constants'
 
-export type selectLanguage = keyof typeof allLanguages // el idioma elegido tendra que ser uno de estos idiomas idiomas
+export type selectLanguage = "en-US" | "es" | "de" // el idioma elegido tendra que ser uno de estos idiomas idiomas
 
 type autoSelectLanguage = typeof autoLanguage
+type allTypesLanguages = autoSelectLanguage | selectLanguage
 export interface PropsToTranslate {
   text: string
-  fromLanguage: allTypesLanguages
+  fromLanguage: allTypesLanguages | null
   toLanguage: selectLanguage
 }
 
-type allTypesLanguages = autoSelectLanguage | selectLanguage
 
 export interface LanguagesStore {
   fromLanguage: allTypesLanguages // idioma que queremos traducir
@@ -18,6 +18,7 @@ export interface LanguagesStore {
   result: string // texto de salida
   loading: boolean // pantalla de carga mientras se traduce
   interchangeLanguages: () => avoid // funcion para invertir los idiomas
+  languageIsTheSame: () => avoid // funcion para no gastar peticiones
   setFromLanguage: (newFromLanguage: allTypesLanguages) => avoid // funcion para elegir el lenguaje de entrada
   setToLanguage: (newToLanguage: selectLanguage) => avoid // funcion para elegir el lenguaje de salida
   setFromText: (textFrom: string) => avoid // funcion para establecer el textp a traducir

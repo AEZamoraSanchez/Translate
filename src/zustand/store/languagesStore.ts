@@ -2,20 +2,27 @@ import { create } from 'zustand'
 import type { LanguagesStore } from '../../types'
 
 export const useLanguagesStore = create <LanguagesStore>((set, get) => ({
-  fromLanguage: 'auto',
-  toLanguage: 'en',
+  fromLanguage: "auto",
+  toLanguage: 'en-US',
   fromText: '',
   result: '',
   loading: false,
   interchangeLanguages: () => {
     const fromLanguage = get().fromLanguage
-    if (fromLanguage !== 'auto') {
+    if (fromLanguage !== "auto") {
       set((state: LanguagesStore) => ({
         ...state,
         fromLanguage: state.toLanguage,
         toLanguage: state.fromLanguage
       }))
     }
+  },
+  languageIsTheSame: () => {
+    const fromText = get().fromText
+    set((state) => ({
+      ...state,
+      result: fromText
+    }))
   },
   setFromLanguage: (newFromLanguage) => {
     set((state) => ({

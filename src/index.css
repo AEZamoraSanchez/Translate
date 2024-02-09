@@ -29,22 +29,26 @@ body {
 
 @layer components {
   .header-main {
-    @apply flex justify-center items-center w-[100%] h-[10vh] rounded-b-lg p-[10px] shadow-lg shadow-current bg-slate-600 hover:bg-slate-500;
+    @apply flex justify-center items-center w-[100%] h-[12vh] rounded-b-lg p-[10px] shadow-lg shadow-current bg-slate-600 hover:bg-slate-500;
   }
   .h1-header{
-    @apply text-[30px] h-fit;
+    @apply text-[30px] font-medium h-fit md:text-[45px];
   }
   .main-app-content{
-    @apply grid grid-cols-1 md:grid-cols-[1fr_50px_50px_1fr] md:grid-rows-[85px_50vh] bg-slate-400 w-full gap-[10px] md:gap-y-[20px] h-[80vh] py-[20px] md:py-[35px];
+    @apply grid grid-cols-1 md:grid-cols-[1fr_50px_50px_1fr] md:grid-rows-[50px_50vh] bg-slate-400 w-full gap-[10px] md:gap-y-[20px] h-[75vh] py-[20px] md:py-[35px];
   }
   .section1-article{
-    @apply bg-slate-500 shadow shadow-current py-[10px] border-[1px] border-black rounded-[3px] text-xl md:text-2xl md:max-h-[8vh];
+    @apply flex gap-[10px] content-center items-center bg-slate-500 shadow shadow-current p-[10px] border-[1px] border-black rounded-[3px] text-xl md:text-2xl md:max-h-[8vh];
   }
   .button-section2{
     @apply grid justify-center content-center cursor-pointer active:bg-slate-600 w-[60%] h-[100%] rounded-[5px] border-2 border-black	bg-slate-500 disabled:opacity-20 md:w-[100%] md:col-start-2 md:col-end-4 md:row-start-1 md:max-h-[8vh];
   }
-  .h2-section3{
-    @apply mx-[8%];
+  .aFromFooter {
+    @apply hover:scale-[1.2] cursor-pointer no-underline duration-1000;
+  }
+
+  .iFromFooter {
+    @apply text-[8.5vh] text-white
   }
 
 }

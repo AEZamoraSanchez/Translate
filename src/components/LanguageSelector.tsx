@@ -9,11 +9,11 @@ const LanguageSelector: FC<SelectProps> = ({ onChange, type, value }) => {
   return (
         <select onChange={ handleSelectLanguage } className='bg-transparent cursor-pointer hover:bg-slate-600' value={value}>
           {
-            type === 'from' && <option className='bg-slate-400 cursor-pointer hover:bg-slate-600' value="auto">Detectar Idioma </option>
+            type === 'from' && <option className='bg-slate-400 cursor-pointer hover:bg-slate-600' value="auto">Detectar idioma </option>
           }
             {
                 Object.entries(allLanguages).map(([key, literal]) => (
-                    <option className='bg-slate-400 cursor-pointer hover:bg-slate-600' key={key} value={key}>{literal}</option>
+                    <option className='bg-slate-400 cursor-pointer hover:bg-slate-600' key={literal} value={literal}>{key}</option>
                 ))
             }
         </select>
