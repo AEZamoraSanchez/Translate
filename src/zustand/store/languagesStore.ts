@@ -56,7 +56,8 @@ export const useLanguagesStore = create <LanguagesStore>((set, get) => ({
   },
   useTranslateText: async (body) => {
     try {
-      
+      console.log("body", body)
+      console.log("url", import.meta.env.VITE_API_BACKEND)
       const response = await fetch(import.meta.env.VITE_API_BACKEND, {
         method: 'POST',
         headers: {
@@ -64,16 +65,16 @@ export const useLanguagesStore = create <LanguagesStore>((set, get) => ({
         },
         body: JSON.stringify(body)
       });
-  
+      console.log("response", response)
       const data = await response.json();
-      console.log(data);
+      console.log("data", data);
       set((state) => ({
         ...state,
         result: data.text
       }));
   
     } catch (error) {
-      console.error(error);
+      console.error("error", error);
     }
   }
 }))
