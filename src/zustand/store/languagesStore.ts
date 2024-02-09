@@ -1,5 +1,8 @@
 import { create } from 'zustand'
 import type { LanguagesStore } from '../../types'
+// import * as dotenv from "dotenv";
+
+// dotenv.config();
 
 export const useLanguagesStore = create <LanguagesStore>((set, get) => ({
   fromLanguage: "auto",
@@ -54,7 +57,7 @@ export const useLanguagesStore = create <LanguagesStore>((set, get) => ({
   useTranslateText: async (body) => {
     try {
       
-      const response = await fetch('http://localhost:3000', {
+      const response = await fetch(import.meta.env.VITE_API_BACKEND, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
