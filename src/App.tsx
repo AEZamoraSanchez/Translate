@@ -38,14 +38,14 @@ function App () {
           <section className='section1-article'>
             <h2 className='w-fit h-fit'>Language:</h2> <LanguageSelector onChange={setFromLanguage} type='from' value={fromLanguage}/>
           </section>
-            <textarea onChange={(e) => setFromText(e.target.value)} autoFocus name="" id="" rows={10} placeholder='Ingresar texto' className=' bg-slate-200 p-[15px] md:col-start-1 md:col-end-3 rounded-md text-2xl'></textarea>
+            <textarea onChange={(e) => setFromText(e.target.value)} autoFocus name="" id="" rows={10} placeholder='Ingresar texto' className=' bg-slate-200 p-[15px] md:col-start-1 md:col-end-3 rounded-md text-2xl md:max-h-[50vh] md:min-h-[50vh]'/>
           <button className='button-section2' disabled={ fromLanguage === "auto"} onClick={interchangeLanguages}>
             <SwitchLanguagesIcon/>
           </button>
           <section className='section1-article md:col-start-4 md:row-start-1'>
             <h2 className='w-fit h-fit'>Language:</h2> <LanguageSelector onChange={setToLanguage} type='to' value={toLanguage}/>
           </section>
-          <textarea name="" id="" cols={30} rows={10} placeholder='Traduccion' readOnly className=' bg-slate-300 p-[15px] md:col-start-3 md:col-end-[-1] rounded-md text-2xl' value={result}></textarea>
+          <textarea name="" id="" cols={30} rows={10} placeholder='Traduccion' readOnly className=' bg-slate-300 p-[15px] md:col-start-3 md:col-end-[-1] rounded-md text-2xl md:max-h-[50vh] md:min-h-[50vh]' value={result}></textarea>
       </main>
       <footer className='flex gap-[15px] items-center justify-items-center justify-center bg-black inset-x-0 bottom-[-20px] m-0 h-[13vh]'>
         <a href="https://www.linkedin.com/in/angel-eduardo-zamora-sanchez-64b84226b/" target="_blank" title="Ir a LinkedIn" className='aFromFooter'>
